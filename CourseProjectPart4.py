@@ -168,20 +168,17 @@ if __name__ == "__main__":
     else:
         #only admin users can enter data
         if (UserRole.upper() == "ADMIN"):
-            
+ 
             EmpFile = open("Employees.txt", "a+")
-    #EmpDetailList = []
-    EmpTotals = {}
-    DetailsPrinted = False
-    while True:
-       empname = GetEmpName()
-       if (empname.upper() == "END"):
-           break
-       fromdate, todate = GetDatesWorked()
-       hours = GetHoursWorked()
-       hourlyrate = GetHourlyRate()
-       taxrate = GetTaxRate()
-       EmpDetail = fromdate + "|" + todate + "|" + empname + "|" + str(hours) + "|" + str(hourlyrate) + "|" + str(taxrate) +"\n"
-       EmpFile.write(EmpDetail)
-    EmpFile.close()
-    printinfo(DetailsPrinted)
+            while True:
+                empname = GetEmpName()
+                if (empname.upper() == "END"):
+                    break
+                fromdate, todate = GetDatesWorked()
+                hours = GetHoursWorked()
+                hourlyrate = GetHourlyRate()
+                taxrate = GetTaxRate()
+                EmpDetail = fromdate + "|" + todate + "|" + empname + "|" + str(hours) + "|" + str(hourlyrate) + "|" + str(taxrate) +"\n"
+                EmpFile.write(EmpDetail)
+            EmpFile.close()
+        printinfo(DetailsPrinted)
